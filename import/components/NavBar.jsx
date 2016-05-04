@@ -12,7 +12,7 @@ export default class NavBar extends React.Component {
 				    <li><a href="collapsible.html">JavaScript</a></li>
 				  </ul>
 				</div>
-			</nav>
+			</nav> 
 		);
 	}
 }

@@ -1,1 +1,18 @@
 /* CSS declarations go here */
+body {
+	margin: 0px;
+}
+
+.leftNavTop64 {
+	top: 64px;
+}
+
+.leftNavTop {
+	top: 0px;	
+}
+
+.title {
+	color: white;
+	font-size: 30px;
+	text-decoration: none;
+}

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {AppBar,IconButton,FlatButton,LeftNav,MenuItem} from 'material-ui';
-import ThemeManager from 'material-ui/lib/styles/theme-manager';
+import {AppBar,IconButton,FlatButton,LeftNav,MenuItem, ThemeManager} from 'material-ui';
 
 import AppBarButton from './AppBarButton.jsx';
 import MyTheme from '../theme/theme.jsx';

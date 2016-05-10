@@ -7,12 +7,20 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "externalify": "0.1.0",
-    "material-ui": "0.14.4",
+    "material-ui": "^0.15.0",
     "meteor-node-stubs": "~0.2.0",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
-    "react-komposer": "^1.8.0",
-    "react-mounter": "1.2.0",   
-    "react-tap-event-plugin": "^0.2.0"
+    "react": "^15.0.0",
+    "react-addons-create-fragment": "^15.0.0",
+    "react-addons-pure-render-mixin": "^15.0.0",
+    "react-dom": "^15.0.0",
+    "react-mixin": "^3.0.5",
+    "react-mounter": "^1.2.0",
+    "react-paginate": "^1.0.5",
+    "react-router": "^2.4.0",
+    "react-tap-event-plugin": "^1.0.0",
+    "redux": "^3.5.0",
+    "redux-form": "^5.2.0",
+    "redux-logger": "^2.6.0",
+    "redux-thunk": "^2.0.0"
   }
 }

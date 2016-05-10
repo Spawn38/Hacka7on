@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
-import {RaisedButton,FlatButton} from 'material-ui';
-import Colors from 'material-ui/lib/styles/colors';
+import {RaisedButton,FlatButton, Colors} from 'material-ui';
 
 export default class AppBarButton extends Component {
-
 
   homeClick() {
  	FlowRouter.go('/Signin'); 	

@@ -8,7 +8,7 @@ meteor-base             # Packages every Meteor app needs to have
 mobile-experience       # Packages for a great mobile UX
 mongo                   # The database Meteor supports right now
 blaze-html-templates    # Compile .html files into Meteor Blaze views
-#reactive-var            # Reactive variable for tracker
+#reactive-var           # Reactive variable for tracker
 session                 # Client-side reactive dictionary for your app
 jquery                  # Helpful client-side library
 tracker                 # Meteor's client-side reactive programming library
@@ -23,21 +23,16 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 accounts-password       # account management
 
 meteorhacks:npm
-
 meteortoys:allthings    # for debugging ctrl + m
 reload
 ejson
 
-#materialize:materialize # Material design
 fourseven:scss          # Sass build plugin  
 
-kadira:flow-router-ssr     # Router 
+kadira:flow-router-ssr  # Router 
 audit-argument-checks
 check
 random
 kadira:dochead
-
-#ultimatejs:tracker-react
-
-npm-container
-
+tmeasday:publish-counts
+react-meteor-data

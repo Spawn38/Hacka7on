@@ -4,6 +4,8 @@ import FilterLink from './FilterLink';
 
 import {Paper} from 'material-ui';
 
+const text = {SHOW_ALL : 'All', SHOW_ACTIVE : 'Active', SHOW_COMPLETED : 'Completed'};
+
 function Footer(props) {
   return (
     <div  className="marginTop" >
@@ -11,15 +13,15 @@ function Footer(props) {
         Filtres :
         {' '}
         <FilterLink filter='SHOW_ALL' {...props}>
-          All
+          {text.SHOW_ALL}
         </FilterLink>
         {', '}
         <FilterLink filter='SHOW_ACTIVE' {...props}>
-          Active
+          {text.SHOW_ACTIVE}
         </FilterLink>
         {', '}
         <FilterLink filter='SHOW_COMPLETED' {...props}>
-          Completed
+           {text.SHOW_COMPLETED}
         </FilterLink>
       </Paper>
     </div>

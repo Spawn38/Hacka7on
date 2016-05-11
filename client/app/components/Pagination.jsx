@@ -1,5 +1,5 @@
 import React, { Component, PropTypes, Styles, ChildContextTypes} from 'react';
-import {FlatButton, Paper} from 'material-ui';
+import {FlatButton, Paper, RaisedButton} from 'material-ui';
 import ChevronLeft from 'material-ui/svg-icons/navigation/chevron-left';
 import ChevronRight from 'material-ui/svg-icons/navigation/chevron-right';
 import muiThemeable from 'material-ui/styles/muiThemeable';
@@ -12,19 +12,17 @@ class Pagination extends Component {
   this.pagesNavigation = this.pagesNavigation.bind(this);
   this.handlePreviousPage = this.handlePreviousPage.bind(this);
   this.handleNextPage = this.handleNextPage.bind(this);
-
   this.state =  {selected : props.initialSelected ? props.initialSelected : 0};
  }
 
   pagesNavigation(nbPage) {
     const styleSelected = Object.assign(this.constructor.styles.iconLinkSelected, { background: this.props.muiTheme.palette.primary1Color });
-    return Array.apply(null, Array(nbPage)).map((val,index) => {
-      
+    return Array.apply(null, Array(nbPage)).map((val,index) => {      
       if(index === this.state.selected) {
-        return <FlatButton key={index+1} label={index+1} style={styleSelected} disabled={true} />;
+        return <RaisedButton key={index+1} label={index+1} style={this.constructor.styles.iconLink} primary={true}/>;
       }
       else {
-        return <FlatButton key={index+1} label={index+1} style={this.constructor.styles.iconLink} />;
+        return <RaisedButton key={index+1} label={index+1} style={this.constructor.styles.iconLink}  onClick={this.handlePageSelected.bind(this, index)} />;
       }
     });        
   }
@@ -64,15 +62,17 @@ class Pagination extends Component {
 
   render() {
 
-    const t = this.pagesNavigation(this.props.pageNum);
- 
-
+    const navigation = this.pagesNavigation(this.props.pageNum); 
+/*    */
+/*  */
     return (
+      <div className="rowInline">
       <Paper>
-        <FlatButton icon={<ChevronLeft/>} style={this.constructor.styles.iconLink} disabled={this.state.selected===0} onClick={this.handlePreviousPage}/>
-        {t}
-        <FlatButton icon={<ChevronRight/>} style={this.constructor.styles.iconLink} disabled={this.state.selected===this.props.pageNum} onClick={this.handleNextPage}/>
+       <RaisedButton icon={<ChevronLeft/>} onClick={this.handlePreviousPage} style={this.constructor.styles.iconLink}/>
+        {navigation}
+        <RaisedButton icon={<ChevronRight/>} onClick={this.handleNextPage} style={this.constructor.styles.iconLink}/>
       </Paper>
+      </div>
     );
   }
 }

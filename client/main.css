@@ -58,3 +58,5 @@ body {
  .textAlignLeft {text-align: left}
 
  .marginTop {margin-top : 24px}
+
+ .rowInline {display:inline-block}

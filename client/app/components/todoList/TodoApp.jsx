@@ -13,8 +13,10 @@ class TodoApp extends Component {
 	<div className="containerCentral">
 		<AddTodo/>
 		<TodoList/>
-		<Footer/>
+		
 		<Pagination pageNum={3}   clickCallback={(data)=> {return dispatch(changePage(data.selected))}}/>
+
+		<Footer/>
 	</div>
 	);
 	}	

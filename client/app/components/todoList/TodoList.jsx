@@ -4,7 +4,8 @@ import { createContainer } from 'meteor/react-meteor-data';
 import { connect }  from 'react-redux';
 import React  from 'react';
 
-import {List, Paper, Subheader} from 'material-ui';
+import {List, Paper, Subheader, RaisedButton} from 'material-ui';
+
 
 import reactMixin from 'react-mixin';
 import Todos from '../../../../imports/collections.js';
@@ -23,12 +24,25 @@ class TodoList extends React.Component {
         handlePageClick={(data)=> {return dispatch(changePage(data.selected))}}
         pageCount={this.props.todoCount/10}
       /> ) : '';
+
+    const text = {SHOW_ALL : 'All', SHOW_ACTIVE : 'Active', SHOW_COMPLETED : 'Completed'};
+
+    let filter = '';
+    if( this.props.visibilityFilter)
+    {
+      filter = <RaisedButton
+                label={text[this.props.visibilityFilter]}
+                secondary={true}
+                 icon={<ActionAndroid />}
+                />                
+    }
+    
     
     return (
       <div className="row">
         <Paper zDepth={2} >
           <List>
-          <Subheader>Liste Todos :</Subheader>
+          <Subheader>Liste Todos {filter} </Subheader>
           {todos.map(todo =>
             <Todo key={todo._id}  {...todo} onClick={() => dispatch(toggleTodo(todo._id))} completed = {todo.completed} />                       
           )}

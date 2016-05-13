@@ -20,7 +20,6 @@ const styles = {
   marginLeft: 24,
 };
 
-
 const submit = (values, dispatch) => {
   return new Promise((resolve, reject) => {   
     dispatch(addTodo(values.todoText));

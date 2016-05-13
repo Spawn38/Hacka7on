@@ -1,19 +1,16 @@
 
 import React from 'react';
-import {mount} from 'react-mounter';
+import { Route, IndexRoute, Link } from 'react-router';
 
-import MainLayout from './layouts/MainLayout.jsx'
-import PlainLayout from './layouts/PlainLayout.jsx'
+import MainApp from './components/MainApp';
+import Signup from './components/Signup';
+import Test from './components/Test';
 
-import MainApp from './components/MainApp.jsx'
+const router = (
+  <Route path="/" component={MainApp}>    
+    <IndexRoute component={Test}/>
+    <Route path="/Signup" component={Signup}/>
+  </Route>
+);
 
-
-
-FlowRouter.route('/', {
-  name: "main",
-  action (){      
-      mount(PlainLayout, {
-          content:<MainApp/>
-      });
-  }
-});
+export default router;

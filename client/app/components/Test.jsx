@@ -9,9 +9,6 @@ export default class Test extends Component {
 		return (
 			<div>
 				This is of test
-				<ul>
-		  
-				</ul>
 			</div>
 		);
 	}

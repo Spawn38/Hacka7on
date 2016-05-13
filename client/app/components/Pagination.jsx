@@ -7,15 +7,15 @@ import muiThemeable from 'material-ui/styles/muiThemeable';
 
 class Pagination extends Component {
   
- constructor(props) {
-  super(props);
-  this.pagesNavigation = this.pagesNavigation.bind(this);
-  this.handlePreviousPage = this.handlePreviousPage.bind(this);
-  this.handleNextPage = this.handleNextPage.bind(this);
-  this.state =  {selected : props.initialSelected ? props.initialSelected : 0};
- }
+  constructor(props) {
+    super(props);
+    this.pagesNavigation = this.pagesNavigation.bind(this);
+    this.handlePreviousPage = this.handlePreviousPage.bind(this);
+    this.handleNextPage = this.handleNextPage.bind(this);
+    this.state =  {selected : props.initialSelected ? props.initialSelected : 0};
+  }
 
-  pagesNavigation(nbPage) {
+  pagesNavigation(nbPage) {    
     const styleSelected = Object.assign(this.constructor.styles.iconLinkSelected, { background: this.props.muiTheme.palette.primary1Color });
     return Array.apply(null, Array(nbPage)).map((val,index) => {      
       if(index === this.state.selected) {
@@ -27,29 +27,21 @@ class Pagination extends Component {
     });        
   }
 
-
-  handlePreviousPage(evt) {
-    
+  handlePreviousPage(evt) {    
     if (this.state.selected > 0) {
       this.handlePageSelected(this.state.selected - 1, evt);
     }
   }
 
   handleNextPage(evt) {
-    
     if (this.state.selected < this.props.pageNum - 1) {
       this.handlePageSelected(this.state.selected + 1, evt);
     }
   }
 
   handlePageSelected(selected, evt) {
-    
-
     if (this.state.selected === selected) return;
-
-    this.setState({selected: selected});
-
-    // Call the callback with the new selected item:
+    this.setState({selected: selected});    
     this.callCallback(selected);
   }
 
@@ -58,20 +50,17 @@ class Pagination extends Component {
         typeof(this.props.clickCallback) === "function") {
       this.props.clickCallback({selected: selectedItem});
     }
-  };
+  }
 
   render() {
-
     const navigation = this.pagesNavigation(this.props.pageNum); 
-/*    */
-/*  */
     return (
       <div className="rowInline">
-      <Paper>
-       <RaisedButton icon={<ChevronLeft/>} onClick={this.handlePreviousPage} style={this.constructor.styles.iconLink}/>
-        {navigation}
-        <RaisedButton icon={<ChevronRight/>} onClick={this.handleNextPage} style={this.constructor.styles.iconLink}/>
-      </Paper>
+        <Paper>
+          <RaisedButton icon={<ChevronLeft/>} onClick={this.handlePreviousPage} style={this.constructor.styles.iconLink}/>
+          {navigation}
+          <RaisedButton icon={<ChevronRight/>} onClick={this.handleNextPage} style={this.constructor.styles.iconLink}/>
+        </Paper>
       </div>
     );
   }
@@ -86,7 +75,6 @@ Pagination.propTypes = {
     pageNum: React.PropTypes.number.isRequired,
     pageRangeDisplayed: React.PropTypes.number,
     marginPagesDisplayed: React.PropTypes.number,
-
     clickCallback: React.PropTypes.func.isRequired,
     initialSelected: React.PropTypes.number
   };

@@ -51,7 +51,7 @@ body {
 }}
 
 
- .row { display:inline-block; width : 100%; text-align: left}
+ .row {display:inline-block; width : 100%; text-align: left}
 
  .alignTop {vertical-align: top}
 
@@ -60,3 +60,5 @@ body {
  .marginTop {margin-top : 24px}
 
  .rowInline {display:inline-block}
+
+ .center {text-align: center}

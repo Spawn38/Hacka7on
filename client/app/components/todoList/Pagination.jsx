@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import ReactPaginate from 'react-paginate';
 
@@ -19,3 +20,4 @@ export default function TodoPagination({handlePageClick, pageCount}) {
     </div>
   );
 }
+*/

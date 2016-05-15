@@ -17,7 +17,7 @@ const history = syncHistoryWithStore(browserHistory, store);
 Meteor.startup( () => {
 	render(
 	  <Provider store={store}>
-	    <Router history={history} routes={router}/>
+	    <Router history={history} routes={router}/> 
 	  </Provider>,
 	  document.getElementById('mount')
 	);

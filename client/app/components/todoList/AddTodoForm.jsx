@@ -49,6 +49,6 @@ class AddTodoForm extends Component {
 
 export default reduxForm({
   form : 'addTodo',
-  fields : ['todoText'],
+  fields : fields,
   validate
 })(AddTodoForm)

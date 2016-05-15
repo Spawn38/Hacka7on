@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {AppBar,Drawer,MenuItem} from 'material-ui';
-import {push} from 'react-router-redux';
+import {push,replace} from 'react-router-redux';
 import {connect} from 'react-redux';
 import AppBarButton from './AppBarButton.jsx';
 
@@ -37,14 +37,15 @@ class NavBar extends Component {
  	}
 
  	titleAction() {
- 		this.props.dispatch(push('/'));
+ 		this.props.dispatch(replace('/'));
  	}
 
 	render() {	
-		let leftNavClass = {top : '0px'};
+		
+		let drawerClass = "drawerTopClass";
 		if(this.state.docked) {
-			leftNavClass = {top : '66px'};
-		}		
+			drawerClass = "drawerTop64Class";
+		}	
 
 		let noMargin = {marginTop : '0px'};
 
@@ -56,11 +57,12 @@ class NavBar extends Component {
     				iconElementRight={<AppBarButton />}    				
     				showMenuIconButton={!this.state.docked}
     				iconStyleRight={noMargin}
-    				 />     
-		 		<Drawer open={this.state.open} docked={this.state.docked} style={leftNavClass}>
+    				style ={{position : "fixed"}}
+    				 />       				
+    			<Drawer open={this.state.open} docked={this.state.docked} containerClassName={drawerClass}>
 				    <MenuItem onTouchTap={this.closeLeftNav.bind(this)}>Menu Item</MenuItem>
 				    <MenuItem onTouchTap={this.closeLeftNav.bind(this)}>Menu Item 2</MenuItem>
-				</Drawer>				
+				</Drawer>								
 			</div>
 		);
 	}

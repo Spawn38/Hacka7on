@@ -10,6 +10,7 @@ const router = (
   <Route path="/" component={MainApp}>    
     <IndexRoute component={Test}/>
     <Route path="/Signup" component={Signup}/>
+    <Route path="/Test" component={Test}/>
   </Route>
 );
 

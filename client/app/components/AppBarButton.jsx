@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {RaisedButton,FlatButton, Colors} from 'material-ui';
 import {grey300} from 'material-ui/styles/colors';
 import {connect} from 'react-redux';
-import {push} from 'react-router-redux';
+import {push,replace} from 'react-router-redux';
 
 class AppBarButton extends Component {
 

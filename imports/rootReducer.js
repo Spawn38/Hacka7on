@@ -6,9 +6,12 @@ import pageSkip from './reducers/pageSkip.js';
 
 import {reducer as formReducer} from 'redux-form';
 
-export default rootReducer = combineReducers({
-  pageSkip,
-  visibilityFilter,
-  form: formReducer,
-  routing: routerReducer
-});
+export default rootReducer = combineReducers(Object.assign({}, 
+{
+	pageSkip,
+	visibilityFilter,
+}, {
+    routing: routerReducer
+}, {
+    form: formReducer
+}));

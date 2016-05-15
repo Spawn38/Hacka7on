@@ -1,64 +1,76 @@
 /* CSS declarations go here */
-html, body {
-    height:100% !important;
+
+html,
+body {
+    height: 100% !important;
 }
 
 body {
-	margin: 0px;	
+    margin: 0px;
 }
 
 .leftNavTop64 {
-	top: 64px;
+    top: 64px;
 }
 
 .leftNavTop {
-	top: 0px;	
+    top: 0px;
 }
 
 .title {
-	color: white;
-	font-size: 30px;
-	text-decoration: none;
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
 }
 
 .page-wrap {
-	min-height: 100vh;
-    margin-bottom: -100px; 
+    min-height: 100vh;
+    margin-bottom: -100px;
 }
 
-.containerCentral {
-	position: relative;
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-    padding-top: 60px;
-    display : block;
+.containerMain {
+    position: relative;
+    padding-left: 14px;   
+    padding-top : 74px;
+    height : 100%;
 }
 
-@media (min-width: 1200px) {
-.containerCentral {
-    width: 1170px;
-}}
+@media (min-width: 800px) {
+    .containerMain {        
+        padding-left: 270px;        
+    }
+}
 
-@media (min-width: 992px) {
-.containerCentral {
-    width: 970px;
-}}
+.row {
+    display: inline-block;
+    width: 100%;
+    text-align: left
+}
 
-@media (min-width: 768px) {
-.containerCentral {
-    width: 750px;
-}}
+.alignTop {
+    vertical-align: top
+}
 
+.textAlignLeft {
+    text-align: left
+}
 
- .row {display:inline-block; width : 100%; text-align: left}
+.marginTop {
+    margin-top: 24px
+}
 
- .alignTop {vertical-align: top}
+.rowInline {
+    display: inline-block
+}
 
- .textAlignLeft {text-align: left}
+.center {
+    text-align: center
+}
 
- .marginTop {margin-top : 24px}
+.drawerTopClass {
+    top: 0px !important
+}
 
- .rowInline {display:inline-block}
-
- .center {text-align: center}
+.drawerTop64Class {
+    top: 64px !important
+}

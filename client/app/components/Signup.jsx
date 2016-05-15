@@ -5,15 +5,6 @@ import SignupForm from './SignupForm.jsx';
 
 class Signup extends Component {
 
-	constructor(props) {
- 		super(props); 		     	
- 	}
-
- 	componentWillMount() {}
-
-	componentWillUnmount() {}
-
-
 	handleSubmit(data) {
 		console.log('Submission received!', data);
 		this.props.dispatch(initialize('signupForm', {})); // clear form
@@ -21,7 +12,7 @@ class Signup extends Component {
 
 	render() {
 		return (
-			<SignupForm  onSubmit={this.handleSubmit.bind(this)}/>
+			<SignupForm  handleSubmit={this.handleSubmit.bind(this)}/>
 		);
 	}
 

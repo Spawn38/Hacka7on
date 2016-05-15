@@ -15,7 +15,9 @@ class MainApp extends Component {
 		return (
 			<div>			
 				<NavBar/>	
-				{this.props.children}
+				<div className="containerMain">
+					{this.props.children}
+				</div>
 			</div>
 		);
 	}

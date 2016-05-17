@@ -1,8 +1,9 @@
 
-export default function changePage(currentPageNumber) {
+export default function changePage(currentPageNumber, nbElements) {
   return {
   	type : 'CHANGE_PAGE',
-  	currentPageNumber
+  	currentPageNumber,
+  	nbElements
   };
 };
 

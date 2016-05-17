@@ -12,7 +12,7 @@ class Signup extends Component {
 
 	render() {
 		return (
-			<SignupForm  handleSubmit={this.handleSubmit.bind(this)}/>
+			<SignupForm  submitParent={this.handleSubmit.bind(this)}/>
 		);
 	}
 

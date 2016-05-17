@@ -20,9 +20,15 @@ class TodoList extends React.Component {
 
     const { dispatch } = this.props;
     const todos = this.props.todoList;        
-    const pagination = this.props.todoCount > 10 ? (
-         <Pagination pageNum={Math.ceil(this.props.todoCount/10)}   
-            clickCallback={(data)=> {return dispatch(changePage(data.selected))}}/>
+
+    let nbElements = 10;    
+    if(Meteor.settings.public.nbElements) {
+      nbElements = Meteor.settings.public.nbElements;
+    }         
+
+    const pagination = this.props.todoCount > nbElements ? (
+         <Pagination pageNum={Math.ceil(this.props.todoCount/nbElements)}   
+            clickCallback={(data)=> {return dispatch(changePage(data.selected,nbElements))}}/>
         ) : '';
 
     const text = {SHOW_ALL : 'All', SHOW_ACTIVE : 'Active', SHOW_COMPLETED : 'Completed'};
@@ -56,10 +62,14 @@ class TodoList extends React.Component {
 }
 
 const TodoContainer = createContainer(({ visibilityFilter, pageSkip }) => {
-  const todoSub = Meteor.subscribe('getTodos', visibilityFilter, pageSkip);
+  let nbElements = 10;    
+    if(Meteor.settings.public.nbElements) {
+      nbElements = Meteor.settings.public.nbElements;
+    }      
+  const todoSub = Meteor.subscribe('getTodos', visibilityFilter, pageSkip, nbElements);
   return {
     todoSubReady: todoSub.ready(),
-    todoList: Todos.find({}, {limit: 10}).fetch() || [],
+    todoList: Todos.find({}, {limit: pageSkip}).fetch() || [],
     todoCount: Counts.get('TodoCount')
   }
 }, TodoList);
@@ -67,7 +77,7 @@ const TodoContainer = createContainer(({ visibilityFilter, pageSkip }) => {
 function mapStateToProps(state) {
   return {
     visibilityFilter: state.visibilityFilter,
-    pageSkip: state.pageSkip
+    pageSkip: state.pageSkip    
   }
 }
 

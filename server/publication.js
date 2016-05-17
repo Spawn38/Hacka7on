@@ -7,11 +7,12 @@ const todoPubFields = {
   completed: 1
 };
 
-const getTodoPublication = function (filter, pageSkip = 0) {
+const getTodoPublication = function (filter, pageSkip = 0, nbElements) {
 
   let query = {};
   check(filter, String);
   check(pageSkip, Number);
+  check(nbElements, Number);
 
   switch (filter) {
     case 'SHOW_COMPLETED':
@@ -24,7 +25,7 @@ const getTodoPublication = function (filter, pageSkip = 0) {
       break;
   }
   Counts.publish(this, 'TodoCount', Todos.find(query));
-  return Todos.find(query, {fields: todoPubFields, skip: pageSkip, limit: 10});
+  return Todos.find(query, {fields: todoPubFields, skip: pageSkip, limit: nbElements});
 };
 
 Meteor.publish('getTodos', getTodoPublication);
@@ -40,3 +41,4 @@ Meteor.users.deny({
     return true;
   }
 });
+

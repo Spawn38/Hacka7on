@@ -7,7 +7,7 @@ class Signup extends Component {
 
 	handleSubmit(data) {
 		console.log('Submission received!', data);
-		this.props.dispatch(initialize('signupForm', {})); // clear form
+		this.props.dispatch(initialize('signupForm', {})); // clear form todo
 	}
 
 	render() {

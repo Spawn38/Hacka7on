@@ -8,8 +8,17 @@ Meteor.methods({
   verifyUser(values) {
   	check(values,Object);
 
-  	/*throw new Meteor.Error("logged-out", 
-  		"The user must be logged in to post a comment.");*/
+  	let userByUserName = Accounts.findUserByUsername(values.userName);
+  	if(userByUserName != null) {
+  		throw new Meteor.Error("err-loggin", 
+  		"Duplicate user on username");
+  	}
+
+  	let userByEmail = Accounts.findUserByEmail(values.email);
+	if(userByEmail != null) {
+  		throw new Meteor.Error("err-loggin", 
+  		"Duplicate user on email");
+  	}
   	
   	return true;
   }

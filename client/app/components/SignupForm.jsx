@@ -2,6 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {TextField,Card,CardText,RaisedButton,FlatButton} from 'material-ui';
 import { reduxForm, initialize } from 'redux-form';
 import validator from 'validator';
+import loginUser from '../actions/logActions';
 
 export const fieldsSignupForm = [ 'firstName', 'name', 'userName', 'email', 'password', 'passwordCheck' ];
 
@@ -44,13 +45,16 @@ const validate = values => {
 }
 
 const submit = (values, dispatch) => {
-  /*return new Promise((resolve, reject) => {
+  return new Promise((resolve, reject) => {
     Meteor.call('verifyUser', values, function(error, result) {
-      console.log(error);
-      console.log(result);      
+      if(error) {        
+        reject({ userName: 'Ce pseudo existe déjà',_error: 'Login failed!'});
+      } else {
+        dispatch(loginUser(values));
+        resolve();
+      }
     });
-    resolve(); 
-  })*/
+  })
   return true;
 }
 
@@ -76,7 +80,7 @@ class SignupForm extends Component {
 
 		return (		  	
 			<div>	  		   
-			    <form onSubmit={handleSubmit(submitParent)}>
+			    <form onSubmit={handleSubmit(submit)}>
 		            <TextField
       					hintText="Prénom"		      					
       					{...firstName}

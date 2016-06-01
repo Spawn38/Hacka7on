@@ -1,30 +1,19 @@
 import React, {Component} from 'react';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
-
 import NavBar from './NavBar';
-//import MyTheme from '../theme/theme.jsx';
+import Toastr from '../toastr/Toastr';
 
 class MainApp extends Component {
-
-	getChildContext() {
-		return {muiTheme: getMuiTheme(baseTheme)};
-	}
-
-	render() {
+	render() {		
 		return (
-			<div>			
-				<NavBar/>	
+			<div className="fullHeight">			 				
+				<NavBar/>					
 				<div className="containerMain">
 					{this.props.children}
-				</div>
+				</div>		
+				<Toastr delay={3000}/>		
 			</div>
 		);
 	}
 }
-
-MainApp.childContextTypes = {
-	muiTheme: React.PropTypes.object.isRequired
-};
 
 export default MainApp;

@@ -1,12 +1,26 @@
 import React, {Component} from 'react';
-import Test from './Test.jsx'
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import MyTheme from '../theme/theme.jsx';
 
-export default class Home extends Component {
-  render() {
-    return (
-      <div>  
-      	<Test />
-      </div>
-    );
-  }
+class Home extends Component {
+
+	getChildContext() {
+		return {muiTheme: getMuiTheme(baseTheme)};
+		//return {muiTheme: getMuiTheme(MyTheme)};
+	}
+
+	render() {
+		return (
+			<div className="fullHeight">			 				
+				{this.props.children}				
+			</div>
+		);
+	}
 }
+
+Home.childContextTypes = {
+	muiTheme: React.PropTypes.object.isRequired
+};
+
+export default Home;

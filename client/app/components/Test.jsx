@@ -5,6 +5,10 @@ export default class Test extends Component {
 		super(props);		
 	}
 
+  	shouldComponentUpdate(nextProps, nextState) {
+ 		return false;
+	}
+
 	render() {
 		return (
 			<div>

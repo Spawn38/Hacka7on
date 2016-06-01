@@ -1,24 +1,43 @@
 import React, {Component} from 'react';
-import {RaisedButton,FlatButton, Colors} from 'material-ui';
+import {Toolbar,ToolbarGroup,ToolbarSeparator,RaisedButton,FlatButton, Colors} from 'material-ui';
+import {MenuItem,FontIcon,DropDownMenu} from 'material-ui';
 import {grey300} from 'material-ui/styles/colors';
 import {connect} from 'react-redux';
-import {push,replace} from 'react-router-redux';
+import {push} from 'react-router-redux';
+import Profile from './Profile';
 
 class AppBarButton extends Component {
 
-  homeClick() {
+  signUpClick() {
     this.props.dispatch(push('/Signup'));
   }
 
-  render() {
-  	let centerStyle = {marginTop : '14px'};
+  signInClick() {
+    this.props.dispatch(push('/Signin'));
+  }
+
+  logOutClick() {
+    this.props.dispatch(push('/Logout'));      
+  }
+
+  render() {   
     return (
-      <span>  
-      	 <FlatButton label="S'inscrire" hoverColor={grey300} onClick={this.homeClick.bind(this)}/>
-      	 <RaisedButton label="Se connecter" secondary={true} style={centerStyle} onClick={this.homeClick.bind(this)}/>
-      </span>
+      <Toolbar className="noBackground marginTop4">
+        <ToolbarGroup float="right" lastChild={true}>               
+          {this.props.loggedIn && <Profile />}          
+          {!this.props.loggedIn && <FlatButton label="S'inscrire" hoverColor={grey300} onClick={this.signUpClick.bind(this)}/>}          
+          {this.props.loggedIn && <RaisedButton label="Se deconnecter" secondary={true} onClick={this.logOutClick.bind(this)}/>}        
+          {!this.props.loggedIn && <RaisedButton label="Se connecter" secondary={true} onClick={this.signInClick.bind(this)}/>}
+         </ToolbarGroup>
+      </Toolbar>      
     );
   }
 }
 
-export default connect()(AppBarButton);
+function mapStateToProps(state) {
+  return {
+    loggedIn : state.user.loggedIn
+  }
+}
+
+export default connect(mapStateToProps)(AppBarButton);

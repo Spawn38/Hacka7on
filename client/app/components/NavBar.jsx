@@ -3,6 +3,7 @@ import {AppBar,Drawer,MenuItem} from 'material-ui';
 import {push,replace} from 'react-router-redux';
 import {connect} from 'react-redux';
 import AppBarButton from './AppBarButton.jsx';
+import {Link} from 'react-router';
 
 class NavBar extends Component {
  	constructor(props) {
@@ -11,8 +12,8 @@ class NavBar extends Component {
      	this.mediaQueryChanged =this.mediaQueryChanged.bind(this);
  	}
 
- 	componentWillMount() {
-    	let mql = window.matchMedia('(min-width: 800px)');
+ 	componentWillMount() { 		
+    	let mql = window.matchMedia('screen and (min-width: 800px)');    	
     	mql.addListener(this.mediaQueryChanged);
     	this.setState({mql: mql, docked: mql.matches, open: mql.matches });    	    	
   	}
@@ -22,7 +23,7 @@ class NavBar extends Component {
 	  this.setState({mql: null});	  
 	}
 
-	mediaQueryChanged() {
+	mediaQueryChanged() {				
 	   this.setState({docked: this.state.mql.matches, open: this.state.mql.matches});	   
 	}
 
@@ -36,7 +37,8 @@ class NavBar extends Component {
  		}
  	}
 
- 	titleAction() {
+ 	titleAction(event) {
+ 		event.preventDefault();
  		this.props.dispatch(replace('/'));
  	}
 
@@ -51,7 +53,7 @@ class NavBar extends Component {
 
 	 	return (	 	
 	 		<div>	
-	 			<AppBar title={ <a href="" className="title">Title</a>} 	
+	 			<AppBar title={ <Link className="title" to="/">Title</Link>} 	
 	 			  	onTitleTouchTap={this.titleAction.bind(this)}
 	 				onLeftIconButtonTouchTap={this.openLeftNav.bind(this)}	 				
     				iconElementRight={<AppBarButton />}    				

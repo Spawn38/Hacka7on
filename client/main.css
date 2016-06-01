@@ -32,7 +32,7 @@ body {
     position: relative;
     padding-left: 14px;   
     padding-top : 74px;
-    height : 100%;
+    background: #fff;    
 }
 
 @media (min-width: 800px) {
@@ -59,6 +59,13 @@ body {
     margin-top: 24px
 }
 
+.marginTop4 {
+    margin-top: 4px
+}
+
+.marginRight {
+    margin-right: 12px
+}
 .rowInline {
     display: inline-block
 }
@@ -73,4 +80,37 @@ body {
 
 .drawerTop64Class {
     top: 64px !important
+}
+
+.mainPanel {
+    margin-top : 40px;
+    margin-left: auto;
+    margin-right: auto;
+    width : 60%;
+    background: #fff;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    box-shadow:0 1px 6px rgba(0,0,0,0.12),
+    0 1px 4px rgba(0,0,0,0.12);
+    border-radius:2px;
+    overflow:hidden;
+    z-index:1;    
+    padding:30px;    
+    display: inline-block; 
+    text-align: left;
+}
+
+.fullHeight {
+    height : 100%       
+}
+
+.grey {
+    background: #eceff1
+}   
+
+.noBackground {
+    background-color: transparent !important
+}
+
+.noPadding {
+    padding: 0px !important
 }

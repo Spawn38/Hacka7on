@@ -36,9 +36,3 @@ Meteor.publish('alltest', () => {
 });
 
 
-Meteor.users.deny({
-  update: function() {
-    return true;
-  }
-});
-

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Route, IndexRoute, Link } from 'react-router';
 
@@ -9,10 +8,9 @@ import Signup from './components/Signup';
 import Signin from './components/Signin';
 import NoMatch from './components/NoMatch';
 import Logout from './components/Logout';
+import Accueil from './components/Accueil';
 
-import Test from './components/Test';
 import TodoApp from './components/todoList/TodoApp';
-
 
 function isLoggout(nextState, replace)  {	
 	if(Meteor.userId()) {
@@ -29,8 +27,8 @@ function isLoggin(nextState, replace)  {
 const router = (
   	<Route path="/" component={Home}> 
 		<Route component={MainApp}>    
-			<IndexRoute component={Test}/>
-			<Route path="/Test" component={Test}/>
+			<IndexRoute component={Accueil}/>
+			<Route path="/Test" component={Accueil}/>
 			<Route path="/Todo" component={TodoApp}/>				
 		</Route>	
 		<Route component={MainPage}>     

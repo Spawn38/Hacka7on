@@ -13,6 +13,12 @@ class Profile extends Component {
     };
   }
 
+  itemTapped(event,menuItem,index) {
+      event.preventDefault();
+      console.log(menuItem.ref,index);
+  }
+  
+
   handleTouchTap(event) {    
     event.preventDefault();
     this.setState({
@@ -48,8 +54,8 @@ class Profile extends Component {
           targetOrigin={{horizontal: 'left', vertical: 'top'}}
           onRequestClose={this.handleRequestClose.bind(this)}
           animation={PopoverAnimationVertical}>
-          <Menu value={this.state.value} onChange={this.handleChange.bind(this)}>
-            <MenuItem primaryText="Settings" value={1}  leftIcon={<FontIcon className="material-icons">settings</FontIcon>}  />
+          <Menu value={this.state.value} onChange={this.handleChange.bind(this)} onItemTouchTap={this.itemTapped.bind(this)}>
+            <MenuItem primaryText="Settings" ref="Settings" value={1}  leftIcon={<FontIcon className="material-icons">settings</FontIcon>}  />
           </Menu>
         </Popover>
       </div>

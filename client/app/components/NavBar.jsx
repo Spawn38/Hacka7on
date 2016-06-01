@@ -37,11 +37,6 @@ class NavBar extends Component {
  		}
  	}
 
- 	titleAction(event) {
- 		event.preventDefault();
- 		this.props.dispatch(replace('/'));
- 	}
-
 	render() {	
 		
 		let drawerClass = "drawerTopClass";
@@ -53,8 +48,7 @@ class NavBar extends Component {
 
 	 	return (	 	
 	 		<div>	
-	 			<AppBar title={ <Link className="title" to="/">Title</Link>} 	
-	 			  	onTitleTouchTap={this.titleAction.bind(this)}
+	 			<AppBar title={ <Link className="title" to="/">Title</Link>} 		 			  	
 	 				onLeftIconButtonTouchTap={this.openLeftNav.bind(this)}	 				
     				iconElementRight={<AppBarButton />}    				
     				showMenuIconButton={!this.state.docked}

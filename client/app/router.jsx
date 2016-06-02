@@ -10,7 +10,9 @@ import NoMatch from './components/NoMatch';
 import Logout from './components/Logout';
 import Accueil from './components/Accueil';
 
+import Settings from './components/Settings';
 import TodoApp from './components/todoList/TodoApp';
+import Skype from './components/Skype';
 
 function isLoggout(nextState, replace)  {	
 	if(Meteor.userId()) {
@@ -30,6 +32,8 @@ const router = (
 			<IndexRoute component={Accueil}/>
 			<Route path="/Test" component={Accueil}/>
 			<Route path="/Todo" component={TodoApp}/>				
+			<Route path="/Skype" component={Skype}/>			
+			<Route path="/Settings" component={Settings}/>		
 		</Route>	
 		<Route component={MainPage}>     
 			<Route path="/Signup" component={Signup} onEnter={isLoggout} />

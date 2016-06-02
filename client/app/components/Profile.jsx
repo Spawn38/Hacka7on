@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
+import {push} from 'react-router-redux';
 import {Avatar,Popover,PopoverAnimationVertical,List,ListItem,FontIcon,Menu,MenuItem} from 'material-ui';
 
 class Profile extends Component {
@@ -15,7 +16,7 @@ class Profile extends Component {
 
   itemTapped(event,menuItem,index) {
       event.preventDefault();
-      console.log(menuItem.ref,index);
+      this.props.dispatch(push(menuItem.ref));
   }
   
 

@@ -61,6 +61,15 @@ class Settings extends Component {
     this.props.load({imageTexte : file.name, fileData : file});
   }
 
+  clickSendMail() {
+    console.log('test');
+    Meteor.call('sendEmail',
+            'forum.spawn@gmail.com',
+            'damien.jacinto@gmail.com',
+            'Hello from Meteor!',
+            'This is a test of Email.send.');
+  }
+
   render() {        
     
     const {fields: {imageTexte}, handleSubmit, resetForm, submitting} = this.props;
@@ -77,6 +86,7 @@ class Settings extends Component {
             <RaisedButton disabled={submitting} onClick={resetForm} label="Annuler"/>                   
           </div>
         </form>
+        <RaisedButton primary={true} label="Email" onClick={this.clickSendMail.bind(this)}/>
       </div>
     );
   }

@@ -12,7 +12,7 @@ export default class Accueil extends Component {
 	render() {
 		return (
 			<div>
-				This is of test
+				This is of test 2
 			</div>
 		);
 	}

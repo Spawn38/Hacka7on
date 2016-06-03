@@ -2,9 +2,11 @@
 	"public": {
     	"nbElements": 10
 	},
-	"cloud_name": "spawn",
-	"cloud_api_key": "552164897675191",
-	"cloud_api_secret": "ruZbd3ZG6_04zlAaL3unnDwAq3g",
+	"cloudinary": {
+		"cloud_name": "spawn",
+		"cloud_api_key": "552164897675191",
+		"cloud_api_secret": "ruZbd3ZG6_04zlAaL3unnDwAq3g"
+	},
 	"mail": {
 		"username" : "3a1649db6ef53408e6ddfa48933f7200",
 		"password" : "664489b079df6b22fbb5b4674469bf55",

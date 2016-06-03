@@ -2,9 +2,9 @@ import cloudinary from 'cloudinary'
 import { Meteor } from 'meteor/meteor';
 
 cloudinary.config({ 
-  cloud_name: Meteor.settings.cloud_name, 
-  api_key: Meteor.settings.cloud_api_key, 
-  api_secret: Meteor.settings.cloud_api_secret
+  cloud_name: Meteor.settings.cloudinary.cloud_name, 
+  api_key: Meteor.settings.cloudinary.cloud_api_key, 
+  api_secret: Meteor.settings.cloudinary.cloud_api_secret
 });
 
 Meteor.methods({	  

@@ -3,12 +3,17 @@ import { Route, IndexRoute, Link } from 'react-router';
 
 import MainApp from './components/MainApp';
 import MainPage from './components/MainPage';
+import MainExterieur from './components/MainExterieur';
+
 import Home from './components/Home';
 import Signup from './components/Signup';
 import Signin from './components/Signin';
 import NoMatch from './components/NoMatch';
 import Logout from './components/Logout';
 import Accueil from './components/Accueil';
+
+import Annuaire from './components/Annuaire';
+import Exterieur from './components/Exterieur';
 
 import Settings from './components/Settings';
 import TodoApp from './components/todoList/TodoApp';
@@ -38,9 +43,15 @@ const router = (
 		<Route component={MainPage}>     
 			<Route path="/Signup" component={Signup} onEnter={isLoggout} />
 			<Route path="/Signin" component={Signin} onEnter={isLoggout}/>		
-			<Route path="/Logout" component={Logout} />	
-			<Route path="*" component={NoMatch}/>
-		</Route>		
+			<Route path="/Logout" component={Logout} />				
+		</Route>	
+
+		<Route component={MainExterieur}>     			
+			<Route path="/Exterieur" component={Exterieur}/>
+			<Route path="/Annuaire" component={Annuaire}/>	
+		</Route>	
+
+		<Route path="*" component={NoMatch}/>
 	</Route>
 );
 

@@ -124,3 +124,17 @@ body {
     left: 0;    
     opacity: 0;
 }
+
+.iconeExterieur {
+    width : 300px;
+}
+
+.displayFlex {
+    display: inline-flex;
+    padding-top: 10px;
+    margin-top:100px;
+}
+
+.greenStef {
+    background-color: #DDEEAA;
+}

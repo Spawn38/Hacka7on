@@ -15,7 +15,7 @@ export default class Exterieur extends Component {
     };
 
     this.textOverlay = {
-    	overlayLivraison : 'Charger / Décharger',
+    	overlayLivraison : 'Dépot / Livraison',
     	overlayAnnuaire : 'Vous me cherchez ?',
     	addOverlayAttente : 'En attendant',
     	overlayInfos : 'Pour être au courant'

@@ -79,7 +79,7 @@ body {
 }
 
 .drawerTop64Class {
-    top: 95px !important
+    top: 64px !important
 }
 
 .mainPanel {
@@ -163,4 +163,8 @@ body {
     padding:30px;    
     display: inline-block; 
     text-align: left;
+}
+
+.blue {
+    background-color: #7AD0DD !important;
 }

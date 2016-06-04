@@ -12,7 +12,7 @@ export default class Accueil extends Component {
 	render() {
 		return (
 			<div className="mainExterieur">
-				This is of test 2
+				<img src="http://res.cloudinary.com/spawn/image/upload/v1464993046/MyLussi_sicexv.png"/>
 			</div>
 		);
 	}

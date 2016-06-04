@@ -4,7 +4,7 @@ import {push,replace} from 'react-router-redux';
 import {connect} from 'react-redux';
 import AppBarButton from './AppBarButton.jsx';
 import {Link} from 'react-router';
-import Titre from './Bandeau/Titre';
+import TitreAdmin from './Bandeau/TitreAdmin';
 
 class NavBar extends Component {
  	constructor(props) {
@@ -60,13 +60,14 @@ class NavBar extends Component {
 
 	 	return (	 	
 	 		<div>	
-	 			<AppBar title={<Titre/>} 	  	
-				iconElementLeft={<img onClick={this.openLeftNav.bind(this)} src="http://res.cloudinary.com/spawn/image/upload/v1464976998/seven_ksa6u9.png" width="70"/>} 							    				
+	 			<AppBar title={<TitreAdmin/>} 	  	
+				iconElementLeft={<img onClick={this.openLeftNav.bind(this)} src="http://res.cloudinary.com/spawn/image/upload/v1464989129/l_steflogo_rp15z7.png" width="70"/>} 							    				
 				showMenuIconButton={true}      				
 				style ={{position : "fixed",   backgroundColor: "#90AA75"}}				 				 			  		 			
     			iconElementRight={<AppBarButton />}    				
     			showMenuIconButton={true}
-    			iconStyleRight={noMargin} 				
+    			iconStyleRight={noMargin} 	
+    			className="blue"			
     				 />       				
     			<Drawer open={this.state.open && meteorid} docked={this.state.docked} containerClassName={drawerClass}>
 				    <MenuItem onTouchTap={this.adminLivreur.bind(this)}>Saisir livraison</MenuItem>

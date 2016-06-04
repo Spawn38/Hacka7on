@@ -20,20 +20,20 @@ class ListLivraison extends React.Component {
     const livraisons = this.props.livraisonList;  
 
     const items = livraisons.map(function(livraison) {
+
+
       return {id : livraison._id, 
         group : livraison.username, 
         title : livraison.societe, 
-        start_time: livraison.dateCommande, 
-        end_time: moment().add(2, 'hour')}
-    });
+        start_time: moment(livraison.dateCommande).add(4, 'hour'), 
+        end_time: moment(livraison.dateCommande).add(6, 'hour')
+    }});
 
     const groups = _.uniq(livraisons.map(function(livraison) {
       return livraison.username
     })).map(function(livraison) {
       return {id : livraison, title : livraison}
-    });
-
-    
+    });   
 
     console.log(groups);
 

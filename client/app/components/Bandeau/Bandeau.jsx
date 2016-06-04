@@ -11,12 +11,11 @@ export default class Bandeau extends Component {
 
 	render() {
 		return (				
-				<AppBar title={<Titre/>} 		 			  	
-					iconElementLeft={<img src="http://res.cloudinary.com/spawn/image/upload/v1464976998/seven_ksa6u9.png" width="70"/>}
-	 				onLeftIconButtonTouchTap={console.log('index')}	 				    				
-    				showMenuIconButton={true}      				
-    				style ={{position : "fixed",   backgroundColor: "#90AA75"}}
-    				 />       	
+			<AppBar title={<Titre/>} 		 			  	
+				iconElementLeft={<img src="http://res.cloudinary.com/spawn/image/upload/v1464976998/seven_ksa6u9.png" width="70"/>} 							    				
+				showMenuIconButton={true}      				
+				style ={{position : "fixed",   backgroundColor: "#90AA75"}}
+				 />       	
 		);
 	}
 }

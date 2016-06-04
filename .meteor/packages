@@ -35,3 +35,4 @@ meteorhacks:npm
 react-meteor-data
 http
 email
+typ:accounts-ldap

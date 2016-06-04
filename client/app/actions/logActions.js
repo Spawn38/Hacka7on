@@ -3,6 +3,8 @@ import {push,replace} from 'react-router-redux'
 
 export function addUser(userInfo) {
   return (dispatch) => {          
+
+    /*
     Meteor.call('verifyUser', userInfo, 
       function(error, result) {
         if(error) {                
@@ -29,6 +31,17 @@ export function addUser(userInfo) {
         }              
       }
     );           
+    */
+
+    Meteor.loginWithLDAP(userInfo.userName, userInfo.password, function(err) {
+      if (err) {
+        dispatch(errorToastr(error.reason));              
+      }
+      else  {
+        dispatch(loginSuccess(Meteor.user()));
+        dispatch(push('/'));
+      }
+    });
   }
 };
 

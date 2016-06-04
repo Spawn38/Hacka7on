@@ -6,6 +6,7 @@ import { Router, browserHistory } from 'react-router'
 import { syncHistoryWithStore } from 'react-router-redux'
 import {configureStore} from './app/store'
 import router from './app/router'
+import {IntlProvider} from 'react-intl';
 
 injectTapEventPlugin();
 
@@ -14,9 +15,12 @@ const history = syncHistoryWithStore(browserHistory, store);
 
 Meteor.startup( () => {
 	render(
+	<IntlProvider locale="en">
 	  <Provider store={store}>	  	
 		<Router history={history} routes={router}/>	    
-	  </Provider>,
+	  </Provider>
+	</IntlProvider>,
+
 	  document.getElementById('mount')
 	);
 });

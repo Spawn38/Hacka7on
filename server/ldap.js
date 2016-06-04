@@ -1,0 +1,1 @@
+LDAP_DEFAULTS.url = 'ldaps://aquarius.stef-tfe.net'; // ldaps protocol

@@ -14,6 +14,11 @@ import Accueil from './components/Accueil';
 
 import Annuaire from './components/Annuaire';
 import Exterieur from './components/Exterieur';
+import Livreur from './components/Livreur/Livreur';
+
+import AdminLivreur from './components/AdminLivreur/AdminLivreur';
+import Livraison from './components/AdminLivreur/Livraison';
+import LivreurDialog from './components/Livreur/LivreurDialog';
 
 import Settings from './components/Settings';
 import TodoApp from './components/todoList/TodoApp';
@@ -48,7 +53,11 @@ const router = (
 
 		<Route component={MainExterieur}>     			
 			<Route path="/Exterieur" component={Exterieur}/>
+			<Route path="/Livreur" component={Livreur}/>
+			<Route path="/AdminLivreur" component={AdminLivreur}/>
+			<Route path="/Livraison/:code" component={Livraison}/>
 			<Route path="/Annuaire" component={Annuaire}/>	
+			<Route path="/LivreurDialog" component={LivreurDialog}/>
 		</Route>	
 
 		<Route path="*" component={NoMatch}/>

@@ -5,6 +5,7 @@ import pageSkip from './reducers/pageSkip.js';
 import user from './reducers/user.js';
 import toastr from './reducers/toastr.js';
 import dataForm from './reducers/dataForm.js';
+import societe from './reducers/societe.js';
 
 import {reducer as formReducer} from 'redux-form';
 
@@ -14,7 +15,8 @@ export default rootReducer = combineReducers(Object.assign({},
 	visibilityFilter,
 	user,
 	toastr,
-	dataForm
+	dataForm,
+	societe
 }, {
     routing: routerReducer
 }, {

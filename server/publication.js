@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import Todos from '../imports/collections.js';
 import Tests from '../imports/collections.js';
+import Livraison from '../imports/collections.js';
 
 const todoPubFields = {
   text: 1,
@@ -35,4 +36,6 @@ Meteor.publish('alltest', () => {
   return Tests.find();
 });
 
-
+Meteor.publish('alllivraison', () => {
+  return Livraison.find({});
+});

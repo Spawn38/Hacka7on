@@ -8,10 +8,10 @@ const MyTheme ={
   zIndex: zIndex,
   fontFamily: 'Roboto, sans-serif',
   palette: {
-    primary1Color: cyan500,
+    primary1Color: '#90AA75',
     primary2Color: cyan700,
     primary3Color: lightBlack,
-    accent1Color: pinkA200,
+    accent1Color: '#DDEEAA',
     accent2Color: grey100,
     accent3Color: grey500,
     textColor: darkBlack,

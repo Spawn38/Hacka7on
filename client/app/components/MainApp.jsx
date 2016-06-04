@@ -7,7 +7,7 @@ class MainApp extends Component {
 		return (
 			<div className="fullHeight">			 				
 				<NavBar/>					
-				<div className="containerMain">
+				<div className="containerMain center">
 					{this.props.children}
 				</div>		
 				<Toastr delay={3000}/>		

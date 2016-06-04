@@ -3,4 +3,9 @@
     font-size: 30px;
     text-decoration: none;
     text-align:left;
+    line-height: 0px !important;
+}
+
+.lineHeight0 {
+	line-height: 0px;
 }

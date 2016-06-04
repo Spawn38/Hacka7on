@@ -1,6 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {RaisedButton} from 'material-ui';
+import { HTTP } from 'meteor/http'
 
 class Skype extends Component {
 
@@ -28,12 +29,26 @@ class Skype extends Component {
           var orgDomain = result._links.user.href.match(/https:\/\/([\w\d\.]+)/i)[0];
 
           console.log('orgDomain==>'+orgDomain);
+
+
+          Meteor.call("skypeFalse",result._links.user.href, function(error,result) { 
+
+            console.log('err',error);
+            /*
+            if(error.statusCode == 401){
+              var toParse = error.response.headers['www-authenticate'];
+              var Oauth = toParse.match(/https:\/\/[\d\w\./_-]+/i)[0];
+              console.log('Oauth==>'+Oauth);
+            }
+            */
+          });
 /*
-            http.get(self.urls.user).catch(function(err){
-        if(err.statusCode == 401){
-            var toParse = err.response.headers['www-authenticate'];
-            var Oauth = toParse.match(/https:\/\/[\d\w\./_-]+/i)[0];
-        console.log('Oauth==>'+Oauth);
+            HTTP.get(result._links.user.href).catch(function(err){
+              if(err.statusCode == 401){
+                var toParse = err.response.headers['www-authenticate'];
+                var Oauth = toParse.match(/https:\/\/[\d\w\./_-]+/i)[0];
+                console.log('Oauth==>'+Oauth);
+            /*
             var loginPost = {
                 grant_type: 'password',
                 username: self.username,
@@ -41,7 +56,9 @@ class Skype extends Component {
             };
 
             return http.post(Oauth, {form:loginPost});
-            */        
+            */  
+  
+  
         } else {
           console.log('erreur');
         }

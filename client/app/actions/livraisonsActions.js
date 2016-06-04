@@ -29,3 +29,21 @@ export function submitCode(values) {
 		});
 	}
 }
+
+
+
+export function changeTime(data) {
+  return {
+  	type : 'LOAD_TIME',
+	data
+  };
+}
+
+
+
+export function changeDate(data) {
+  return {
+  	type : 'LOAD_DATE',
+	data
+  };
+}

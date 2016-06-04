@@ -6,8 +6,8 @@ import MyTheme from '../theme/theme.jsx';
 class Home extends Component {
 
 	getChildContext() {
-		return {muiTheme: getMuiTheme(baseTheme)};
-		//return {muiTheme: getMuiTheme(MyTheme)};
+		//return {muiTheme: getMuiTheme(baseTheme)};
+		return {muiTheme: getMuiTheme(MyTheme)};
 	}
 
 	render() {

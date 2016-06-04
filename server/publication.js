@@ -35,7 +35,3 @@ Meteor.publish('getTodos', getTodoPublication);
 Meteor.publish('alltest', () => {
   return Tests.find();
 });
-
-Meteor.publish('alllivraison', () => {
-  return Livraison.find({});
-});

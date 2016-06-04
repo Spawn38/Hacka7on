@@ -11,7 +11,7 @@ export default class Accueil extends Component {
 
 	render() {
 		return (
-			<div>
+			<div className="mainExterieur">
 				This is of test 2
 			</div>
 		);

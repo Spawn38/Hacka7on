@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import { Meteor } from 'meteor/meteor'
 import {connect} from 'react-redux';
 import {push} from 'react-router-redux';
 import {Avatar,Popover,PopoverAnimationVertical,List,ListItem,FontIcon,Menu,MenuItem} from 'material-ui';
@@ -38,7 +39,7 @@ class Profile extends Component {
     this.setState({value});
   } 
 
-  render() {        
+  render() { 
     return (
       <div>    
         <List className="noPadding">
@@ -46,7 +47,7 @@ class Profile extends Component {
            onTouchTap={this.handleTouchTap.bind(this)}
            leftAvatar={
             <Avatar icon={<FontIcon className="material-icons">settings</FontIcon>} />
-           }>test</ListItem>
+           }></ListItem>
         </List>                
         <Popover
           open={this.state.open}

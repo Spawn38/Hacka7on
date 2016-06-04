@@ -1,7 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 
 Meteor.publish("userData", function () {
-  if (this.userId) {
+  if (this.userId) {  	
     return Meteor.users.find({_id: this.userId},
                              {fields: {'firstName': 1, 'name': 1}});
   } else {

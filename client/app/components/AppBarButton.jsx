@@ -26,8 +26,8 @@ class AppBarButton extends Component {
         <ToolbarGroup float="right" lastChild={true}>               
           {this.props.loggedIn && <Profile />}          
           {!this.props.loggedIn && <FlatButton label="S'inscrire" hoverColor={grey300} onClick={this.signUpClick.bind(this)}/>}          
-          {this.props.loggedIn && <RaisedButton label="Se deconnecter" secondary={true} onClick={this.logOutClick.bind(this)}/>}        
-          {!this.props.loggedIn && <RaisedButton label="Se connecter" secondary={true} onClick={this.signInClick.bind(this)}/>}
+          {this.props.loggedIn && <RaisedButton label="Se deconnecter" labelStyle={{color : '#000'}} secondary={true} onClick={this.logOutClick.bind(this)}/>}        
+          {!this.props.loggedIn && <RaisedButton label="Se connecter" labelStyle={{color : '#000'}} secondary={true} onClick={this.signInClick.bind(this)}/>}
          </ToolbarGroup>
       </Toolbar>      
     );

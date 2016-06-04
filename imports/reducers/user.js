@@ -1,7 +1,8 @@
 
 export const initState = {
   loggedIn : Meteor.userId()!=null,  
-  errorLogin : ''
+  errorLogin : '',
+  userInfo : null
 }
 
 export default function userReducer(state = initState, action = {}){  
@@ -10,19 +11,22 @@ export default function userReducer(state = initState, action = {}){
       console.log('LOGIN_SUCCESS');
       return Object.assign({}, state, {
         errorLogin : undefined,        
-        loggedIn : true
+        loggedIn : true,
+        userInfo : action.userInfo
       });
     case 'LOGIN_FAILURE' :      
       console.log('LOGIN_FAILURE');
       return Object.assign({}, state, {
         errorLogin: action.error,
-        loggedIn : false
+        loggedIn : false,
+        userInfo : null
       });
     case 'LOGOUT':
       console.log('LOGOUT');
       return Object.assign({}, state, {
         errorLogin : undefined,        
-        loggedIn : false
+        loggedIn : false,
+        userInfo : null
       });     
     default:      
       return state;

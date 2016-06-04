@@ -93,6 +93,7 @@ export default class Exterieur extends Component {
     	}			
     	
 		return (
+		<div display="block">
 			<div className="displayFlex" >
 			<div className="cardMain">
 			 <Card className="iconeExterieur" 
@@ -143,8 +144,14 @@ export default class Exterieur extends Component {
 			      <img src="http://res.cloudinary.com/spawn/image/upload/v1464985918/infos_pf5laz.jpg" />
 			    </CardMedia>			    			       
 			  </Card>
+			</div>	
+
 			</div>		
-			</div>			
+
+			<div>
+				<img height="200px" src ="http://res.cloudinary.com/spawn/image/upload/v1464993046/MyLussi_sicexv.png"/>	
+			</div>
+		</div>	
 		);
 	}
 } 

@@ -5,18 +5,11 @@ import {reduxForm} from 'redux-form';
 import areIntlLocalesSupported from 'intl-locales-supported';
 import Livraison from '../../../../imports/collections.js';
 import {listSociete} from '../../actions/actionSociete';
-import {createLivraison} from '../../actions/livraisonsActions';
+import {createLivraison,changeTime,changeDate} from '../../actions/livraisonsActions';
+import moment from 'moment';
 
-export const fieldsAdminLivreurForm = [ 'societe','natCommande','description','dateCommande','heureCommande','code' ];
 
-const submit = (values, dispatch) => {
-
-	if(!values.code) {
-		values.code =Random.hexString(6);
-	}
-
-	dispatch(createLivraison(values));
-}
+export const fields= [ 'societe','natCommande','description','dateCommande','heureCommande','code' ];
 
 const validate = values => {
   const errors = {} 
@@ -32,22 +25,39 @@ const validate = values => {
 
 export default class AdminLivreur extends Component {	
 
+	submit(values, dispatch) {
+
+	values.dateCommande = new Date(this.props.datePicker.toISOString());
+	values.heureCommande = new Date(this.props.timePicker.toISOString());
+
+	if(!values.code) {
+		values.code =Random.hexString(6);
+	}
+
+	dispatch(createLivraison(values));
+	
+	}
+
+
 	constructor(props) {
 	    super(props);
-	    this.state = {dataSource : []};
-	    		Meteor.call('listSociete',function(error,result)
-			{
-				props.dispatch(listSociete(result));
-			});
-
+	    this.state = {
+	    	dataSource : [], 
+	    };
+	    
+	    Meteor.call('listSociete',function(error,result)
+		{
+			props.dispatch(listSociete(result));
+		});
 	}
 	
-	changedDatePicker(event) {
-	
+	changedDatePicker(event,date) {
+		console.log(date);
+		this.props.dispatch(changeDate(date));		
 	}
 
-	changedTimePicker(event) {		
-		
+	changedTimePicker(event,time) {		
+		this.props.dispatch(changeTime(time));
 	}
 
 	render() {	
@@ -59,12 +69,17 @@ export default class AdminLivreur extends Component {
 	  			require('intl/locale-data/jsonp/fr');
 		}
 		
-		const {fields: {societe,natCommande,description,dateCommande,heureCommande,code}, 
+		let {fields: {societe,natCommande,description,dateCommande,heureCommande,code}, 
 		handleSubmit, resetForm, submitting} = this.props;
-	
+
+		dateCommande = this.props.datePicker;
+		heureCommande = this.props.timePicker;
+
 		return (
+
+
 			<div className="mainFormExterieur">
-				<form onSubmit={handleSubmit(submit)}>
+				<form onSubmit={handleSubmit(this.submit.bind(this))}>
 
 					<AutoComplete
 					  fullWidth={true}
@@ -96,8 +111,8 @@ export default class AdminLivreur extends Component {
 		      			okLabel="OK"
 		      			cancelLabel="Annuler"
 		      			locale="fr"		      			
-		      			onChange={this.changedDatePicker.bind(this)}
-		      			ref="DatePicker"
+		      			onChange={this.changedDatePicker.bind(this)}		      					      			
+		      			value={dateCommande}  
 		    		/>
 		    		<br/>
 	   			    <TimePicker	    
@@ -105,7 +120,7 @@ export default class AdminLivreur extends Component {
 	      				format="24hr"
 	      				hintText="Heure livraison"	      	
 	      				onChange={this.changedTimePicker.bind(this)}
-	      				ref="TimePicker"	      				
+	      				value={heureCommande}    				
 	    			/>
 	    			<br/>
 	    			<TextField	         
@@ -133,11 +148,15 @@ AdminLivreur.propTypes = {
 }
 
 function mapstoprops(state) {		
-	return {listSociete : state.societe.societe}
+	return {
+		listSociete : state.societe.societe,
+		datePicker : state.dataForm.data_date,
+		timePicker : state.dataForm.data_time
+	}
 }
 
 export default reduxForm({
   form : 'AdminLivreur',  
-  fields : fieldsAdminLivreurForm,
+  fields,
   validate
 },mapstoprops)(AdminLivreur);

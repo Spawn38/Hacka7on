@@ -4,6 +4,7 @@ import {push,replace} from 'react-router-redux';
 import {connect} from 'react-redux';
 import AppBarButton from './AppBarButton.jsx';
 import {Link} from 'react-router';
+import Titre from './Bandeau/Titre';
 
 class NavBar extends Component {
  	constructor(props) {
@@ -28,13 +29,22 @@ class NavBar extends Component {
 	}
 
  	openLeftNav() {
- 		this.setState({open: true});
+ 		if (Meteor.userId()!==null) 
+ 			this.setState({open: true});
  	}
 
- 	closeLeftNav() {
+ 	listlivraison() {
  		if(!this.state.docked) {
  			this.setState({open: false});	
  		}
+ 		this.props.dispatch(push('/Listlivraison'));
+ 	}
+
+ 	adminLivreur() {
+ 		if(!this.state.docked) {
+ 			this.setState({open: false});	
+ 		}
+ 		this.props.dispatch(push('/AdminLivreur'));
  	}
 
 	render() {	
@@ -46,18 +56,21 @@ class NavBar extends Component {
 
 		let noMargin = {marginTop : '0px'};
 
+		let meteorid = Meteor.userId()!==null;
+
 	 	return (	 	
 	 		<div>	
-	 			<AppBar title={ <Link className="title" to="/">Title</Link>} 		 			  	
-	 				onLeftIconButtonTouchTap={this.openLeftNav.bind(this)}	 				
-    				iconElementRight={<AppBarButton />}    				
-    				showMenuIconButton={!this.state.docked}
-    				iconStyleRight={noMargin}
-    				style ={{position : "fixed"}}
+	 			<AppBar title={<Titre/>} 	  	
+				iconElementLeft={<img onClick={this.openLeftNav.bind(this)} src="http://res.cloudinary.com/spawn/image/upload/v1464976998/seven_ksa6u9.png" width="70"/>} 							    				
+				showMenuIconButton={true}      				
+				style ={{position : "fixed",   backgroundColor: "#90AA75"}}				 				 			  		 			
+    			iconElementRight={<AppBarButton />}    				
+    			showMenuIconButton={true}
+    			iconStyleRight={noMargin} 				
     				 />       				
-    			<Drawer open={this.state.open} docked={this.state.docked} containerClassName={drawerClass}>
-				    <MenuItem onTouchTap={this.closeLeftNav.bind(this)}>Menu Item</MenuItem>
-				    <MenuItem onTouchTap={this.closeLeftNav.bind(this)}>Menu Item 2</MenuItem>
+    			<Drawer open={this.state.open && meteorid} docked={this.state.docked} containerClassName={drawerClass}>
+				    <MenuItem onTouchTap={this.adminLivreur.bind(this)}>Saisir livraison</MenuItem>
+				    <MenuItem onTouchTap={this.listlivraison.bind(this)}>Agenda livraison</MenuItem>
 				</Drawer>								
 			</div>
 		);

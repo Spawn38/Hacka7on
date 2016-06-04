@@ -99,7 +99,7 @@ export default class AdminLivreur extends Component {
 	  				<br/>
 	  				<TextField
 	            		fullWidth={true}
-	  					hintText="Decsription"		      	
+	  					hintText="Description"		      	
 	  					multiLine={true}
       					rows={2}				
 	  					{...description}

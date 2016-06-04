@@ -15,17 +15,17 @@ export default class Exterieur extends Component {
     };
 
     this.textOverlay = {
-    	overlayLivraison : 'test1',
-    	overlayAnnuaire : 'test2',
-    	addOverlayAttente : 'test3',
-    	overlayInfos : 'test4'
+    	overlayLivraison : 'Charger / Décharger',
+    	overlayAnnuaire : 'Vous me cherchez ?',
+    	addOverlayAttente : 'En attendant',
+    	overlayInfos : 'Pour être au courant'
     };
 
     this.subtitleOverlay = {
-    	overlayLivraison : 'test1',
-    	overlayAnnuaire : 'test2',
-    	addOverlayAttente : 'test3',
-    	overlayInfos : 'test4'
+    	overlayLivraison : 'Telle est la question',
+    	overlayAnnuaire : 'Rechercher un contact par nom',
+    	addOverlayAttente : 'La patience est la meilleure des vertues',
+    	overlayInfos : ''
     };
   }
 
@@ -62,6 +62,10 @@ export default class Exterieur extends Component {
 
   	onClickLivreur() {
   		this.props.dispatch(push('/Livreur'));
+  	}
+
+  	qui() {
+  		this.props.dispatch(push('/qui'));
   	}
 
 	render() {	
@@ -149,7 +153,7 @@ export default class Exterieur extends Component {
 			</div>		
 
 			<div>
-				<img height="200px" src ="http://res.cloudinary.com/spawn/image/upload/v1464993046/MyLussi_sicexv.png"/>	
+				<img onClick={this.qui.bind(this)} height="200px" src ="http://res.cloudinary.com/spawn/image/upload/v1464993046/MyLussi_sicexv.png"/>	
 			</div>
 		</div>	
 		);

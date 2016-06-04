@@ -13,7 +13,7 @@ import {submitCode} from '../../actions/livraisonsActions';
 
 
 const iconStyles = {
-  fontSize: 24,
+  fontSize: 24
 };
 
 export default class LivreurDialog extends Component {	
@@ -33,10 +33,6 @@ export default class LivreurDialog extends Component {
 				<List>
       				<ListItem primaryText="Message envoyé : Votre livreur est arrivé" leftIcon={<ContentSend />} />     
 
-      				  <TextField
-      					hintText="Saisir un message"
-      					floatingLabelText="Saisir un message"
-    				/> <RaisedButton label="Envoyer" primary={true} style={style} icon={<ContentSend />} />
     			</List>
 			</div>
 			<div>

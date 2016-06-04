@@ -20,6 +20,7 @@ import AdminLivreur from './components/AdminLivreur/AdminLivreur';
 import Livraison from './components/AdminLivreur/Livraison';
 import LivreurDialog from './components/Livreur/LivreurDialog';
 import ListLivraison from './components/AdminLivreur/ListLivraison';
+import Qui from './components/Qui/Qui';
 
 import Settings from './components/Settings';
 import TodoApp from './components/todoList/TodoApp';
@@ -61,6 +62,7 @@ const router = (
 			<Route path="/Annuaire" component={Annuaire}/>	
 			<Route path="/LivreurDialog" component={LivreurDialog}/>
 		</Route>	
+		<Route path="/Qui"  component={Qui}/>
 
 		<Route path="*" component={NoMatch}/>
 	</Route>

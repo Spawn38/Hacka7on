@@ -3,7 +3,11 @@ import Livraison from '../imports/collections.js';
 
 const livraisonPubFields = {
   code: 1,
-  societe: 1
+  societe: 1,
+  username : 1,
+  titre : 1,
+  dateCommande : 1,
+  heureCommande : 1
 };
 
 const getLivraisonPublication = function (filter = "", pageSkip = 0, nbElements= 0) {

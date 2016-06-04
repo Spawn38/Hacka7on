@@ -12,17 +12,6 @@ import Pagination from '../Pagination';
 import Timeline from 'react-calendar-timeline'
 import moment from 'moment';
 
-const groups = [
-  {id: 1, title: 'group 1'},
-  {id: 2, title: 'group 2'}
-]
- 
-const items = [
-  {id: 1, group: 1, title: 'item 1', start_time: moment(), end_time: moment().add(2, 'hour')},
-  {id: 2, group: 2, title: 'item 2', start_time: moment().add(-0.5, 'hour'), end_time: moment().add(0.5, 'hour')},
-  {id: 3, group: 1, title: 'item 3', start_time: moment().add(2, 'hour'), end_time: moment().add(3, 'hour')}
-]
-
 
 class ListLivraison extends React.Component {
   render() {
@@ -31,8 +20,18 @@ class ListLivraison extends React.Component {
     const livraisons = this.props.livraisonList;  
 
     const items = livraisons.map(function(livraison) {
-      return {id : livraison._id, group : 1, title : livraison.societe, start_time: moment(), end_time: moment().add(2, 'hour')}
-    })
+      return {id : livraison._id, group : livraison.username, title : livraison.societe, start_time: moment(), end_time: moment().add(2, 'hour')}
+    });
+
+    const groups = _.uniq(livraisons.map(function(livraison) {
+      return livraison.username
+    })).map(function(livraison) {
+      return {id : livraison, title : livraison}
+    });
+
+    
+
+    console.log(groups);
 
     return (
    <Timeline groups={groups}

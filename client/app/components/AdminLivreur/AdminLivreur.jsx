@@ -29,6 +29,7 @@ export default class AdminLivreur extends Component {
 
 	values.dateCommande = new Date(this.props.datePicker.toISOString());
 	values.heureCommande = new Date(this.props.timePicker.toISOString());
+	values.username = this.props.username;
 
 	if(!values.code) {
 		values.code =Random.hexString(6);
@@ -118,7 +119,10 @@ export default class AdminLivreur extends Component {
 	   			    <TimePicker	    
 	   			    	fullWidth={true}				
 	      				format="24hr"
-	      				hintText="Heure livraison"	      	
+	      				okLabel="OK"
+		      			cancelLabel="Annuler"
+	      				hintText="Heure livraison"	  
+	      				locale="fr"	    	
 	      				onChange={this.changedTimePicker.bind(this)}
 	      				value={heureCommande}    				
 	    			/>
@@ -151,7 +155,8 @@ function mapstoprops(state) {
 	return {
 		listSociete : state.societe.societe,
 		datePicker : state.dataForm.data_date,
-		timePicker : state.dataForm.data_time
+		timePicker : state.dataForm.data_time,
+		username : state.user.userInfo.username
 	}
 }
 

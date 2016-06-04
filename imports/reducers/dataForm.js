@@ -9,13 +9,13 @@ export default function dataFormReducer(state = {
         		data: action.data
       		}
       	case 'LOAD_TIME':
-      		return {
+      		return Object.assign({}, state, {
         		data_time: action.data
-      		}
+      		});
       	case 'LOAD_DATE':
-      		return {
+      		return Object.assign({}, state, {
         		data_date: action.data
-      		}
+      		});
     	default:
       		return state;
   }
